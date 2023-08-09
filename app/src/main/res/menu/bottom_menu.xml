@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="Challenge"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/vs"
+        android:id="@+id/challenge"/>
+
+    <item android:title="Community"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/baseline_community"
+        android:id="@+id/community"/>
+
+    <item android:title="Leaderboard"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/baseline_leaderboard"
+        android:id="@+id/leaderboard"/>
+
+    <item android:title="Profile"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/baseline_account"
+        android:id="@+id/profile"/>
+
+</menu>

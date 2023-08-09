@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+
+    <item android:title="@string/app_name">
+        <menu >
+            <group android:checkableBehavior="single">
+                <item
+                    android:title="Account"
+                    android:icon="@drawable/baseline_account"
+                    android:id="@+id/nav_account"/>
+
+            </group>
+        </menu>
+
+    </item>
+
+
+
+    <item android:title="Share With Friends">
+        <menu>
+
+            <item
+                android:title="Share"
+                android:icon="@drawable/baseline_share"
+                android:id="@+id/nav_share"/>
+
+        </menu>
+    </item>
+
+
+
+    <item android:title="About Us">
+        <menu>
+
+            <item
+                android:title="Credits"
+                android:icon="@drawable/baseline_volunteer_activism"
+                android:id="@+id/nav_credits"/>
+
+
+            <item
+                android:title="About"
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_about"/>
+
+        </menu>
+    </item>
+
+    <item android:id="@+id/nav_logout"
+        android:title="Logout"
+        android:icon="@drawable/baseline_logout"/>
+
+</menu>

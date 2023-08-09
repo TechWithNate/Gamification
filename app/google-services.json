@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "132910666843",
+    "project_id": "digi-learn-6ad8c",
+    "storage_bucket": "digi-learn-6ad8c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:132910666843:android:f3195a0f7bf46e41621b7e",
+        "android_client_info": {
+          "package_name": "com.digi.learn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "132910666843-vgj6gba8dkkjmhg91m2atf6ar7la3uhd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.digi.learn",
+            "certificate_hash": "b62c2cba3603f0053010ddcb06ffb0bec4437503"
+          }
+        },
+        {
+          "client_id": "132910666843-evhqe9clgnsn8gmorpkvpr1gmvf9c6nj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNB97Odek4vnBki_7Bxb5AeoqxeU6g1qw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "132910666843-evhqe9clgnsn8gmorpkvpr1gmvf9c6nj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_blue"
+    tools:context=".CreateAccount">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/create_account"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:fontFamily="@font/roboto_bold"
+        android:id="@+id/create_acc_tv"/>
+
+    <EditText
+        android:id="@+id/firstname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_below="@+id/create_acc_tv"
+        android:layout_marginTop="20dp"
+        android:textSize="15sp"
+        android:textColor="@color/white_grey"
+        android:textColorHint="@color/white_grey"
+        android:hint="@string/first_name"
+        android:autofillHints="name" />
+
+
+
+
+    <EditText
+        android:id="@+id/lastname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textColorHint="@color/white_grey"
+        android:textSize="15sp"
+        android:layout_below="@+id/firstname"
+        android:hint="@string/last_name"
+        android:autofillHints="name"
+        android:inputType="textPersonName" />
+
+
+
+
+    <EditText
+        android:id="@+id/studentID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textSize="15sp"
+        android:textColorHint="@color/white_grey"
+        android:layout_below="@+id/lastname"
+        android:hint="@string/student_id"
+        android:autofillHints="Student ID" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/level_textField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textColorHint="@color/white_grey"
+        app:boxStrokeColor="@color/white_grey"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_below="@+id/studentID"
+        android:hint="@string/level">
+
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/level"
+            android:inputType="none"
+            android:textSize="15sp"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:id="@+id/loadingPb"/>
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textColorHint="@color/white_grey"
+        android:inputType="textEmailAddress"
+        android:layout_below="@+id/level_textField"
+        android:hint="@string/email"
+        android:autofillHints="emailAddress" />
+
+
+
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:inputType="textPassword"
+        app:endIconMode="password_toggle"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white_grey"
+        android:layout_below="@+id/email"
+        android:hint="@string/password"
+        android:autofillHints="password" />
+
+
+
+
+    <EditText
+        android:id="@+id/confirm_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:endIconMode="password_toggle"
+        android:inputType="textPassword"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white_grey"
+        android:layout_below="@+id/password"
+        android:hint="@string/confirm_password"
+        android:autofillHints="password" />
+
+
+
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_below="@+id/confirm_password"
+        android:layout_marginTop="20dp"
+        android:id="@+id/create_account"
+        app:cornerRadius="10dp"
+        android:text="@string/create_account"
+        android:textAllCaps="true"
+        android:backgroundTint="@color/light_blue"
+        android:fontFamily="@font/roboto_bold"
+        android:textStyle="bold"
+        android:textSize="15sp"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_below="@+id/create_account"
+            android:id="@+id/or">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey_dark"
+                android:layout_toStartOf="@+id/orTxt"
+                android:layout_marginEnd="10dp"
+                android:layout_centerVertical="true"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/or"
+                android:textColor="@color/white"
+                android:layout_centerInParent="true"
+                android:id="@id/orTxt"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey_dark"
+                android:layout_toEndOf="@+id/orTxt"
+                android:layout_marginStart="10dp"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/continue_with_google"
+            android:textAllCaps="true"
+            app:cornerRadius="10dp"
+            android:layout_below="@+id/or"
+            android:backgroundTint="#1896F1"
+            android:id="@+id/googleBtn"/>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/googleBtn"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/don_t_have_an_account"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:id="@+id/dha"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:textSize="15sp"
+            android:textColor="@color/light_blue"
+            android:id="@+id/login"
+            android:layout_toEndOf="@+id/dha"
+            android:layout_marginStart="5dp"/>
+
+    </RelativeLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

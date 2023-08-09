@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+<!--        android:id="@+id/appBarLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+
+<!--        <com.google.android.material.appbar.MaterialToolbar-->
+<!--            android:id="@+id/topAppBar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="?attr/actionBarSize"-->
+<!--            app:title="Challenge"-->
+<!--            app:navigationIcon="@drawable/ic_menu"-->
+<!--            android:background="@color/light_blue"-->
+<!--            app:titleTextColor="@color/white"-->
+<!--            app:titleCentered="true"-->
+<!--            app:navigationIconTint="@color/white"-->
+<!--            />-->
+
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@color/main_dark"-->
+<!--        android:orientation="vertical"-->
+<!--        android:id="@+id/algo">-->
+
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="220dp"-->
+<!--            android:background="@color/grey_dark">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Data Structure and Algorithm"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:textSize="18sp"-->
+<!--                android:id="@+id/title1"/>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@+id/title1"-->
+<!--                android:text="Challenge your opponent when you select this course"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:id="@+id/desc1"/>-->
+
+
+<!--            <com.google.android.material.card.MaterialCardView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="120dp"-->
+<!--                android:layout_below="@+id/desc1"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:layout_marginEnd="20dp">-->
+
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent">-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="50dp"-->
+<!--                        android:layout_height="50dp"-->
+<!--                        android:src="@drawable/ic_launcher_background"-->
+<!--                        android:scaleType="centerCrop"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_marginStart="40dp"/>-->
+
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="30dp"-->
+<!--                        android:layout_height="30dp"-->
+<!--                        android:scaleType="centerCrop"-->
+<!--                        android:src="@drawable/ic_launcher_background"-->
+<!--                        android:layout_centerHorizontal="true"-->
+<!--                        android:layout_marginTop="20dp"/>-->
+
+
+
+
+<!--                </RelativeLayout>-->
+
+<!--            </com.google.android.material.card.MaterialCardView>-->
+
+
+<!--        </RelativeLayout>-->
+
+
+
+
+<!--    </LinearLayout>-->
+
+    
+
+    
+
+</RelativeLayout>

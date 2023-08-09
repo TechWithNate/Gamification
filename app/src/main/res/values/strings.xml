@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Digilearn</string>
+    <string name="into_text">Computer Science Theoretical Courses Made Easy Through Gamification</string>
+    <string name="create_account">Create Account</string>
+    <string name="first_name">First Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="level">Level</string>
+    <string name="last_name">Last Name</string>
+    <string name="student_id">Student ID</string>
+    <string name="login">Login</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="project_topic">Improving Teaching and Learning of Computer Science Courses Through Gamification</string>
+    <string name="project">Text</string>
+    <string name="profile_image">Profile Image</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="continue_with_google">Continue with google</string>
+    <string name="or">or</string>
+    <string name="submit">Submit</string>
+    <string name="start_typing_your_feedback_here">Start typing your feedback here...</string>
+    <string name="feedback_title">Give us a feedback</string>
+    <string name="description">This is a sample description</string>
+    <string name="leaderboard">Leaderboard</string>
+    <string name="about_us">About Us</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="logout">Logout</string>
+    <string name="extreme_points">XP</string>
+    <string name="lvl">Lvl</string>
+    <string name="bullet1">\u25BA</string>
+    <string name="bullet">\u25CF</string>
+
+</resources>
