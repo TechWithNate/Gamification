@@ -116,7 +116,7 @@ public class CreateTextPost extends AppCompatActivity {
             postData.put("name", name);
             postData.put("post", post.getText().toString());
             postData.put("time", timeStamp);
-            postData.put("userImage", imageUri);
+            postData.put("profilePicture", imageUri);
 
             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Posts");
             databaseReference.child(timeStamp).setValue(postData).addOnSuccessListener(new OnSuccessListener<Void>() {

@@ -53,7 +53,7 @@
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/password"
+        android:layout_below="@+id/forgot_password"
         android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
@@ -65,63 +65,65 @@
         android:id="@+id/loginBtn"/>
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password"
+        android:id="@+id/forgot_password"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:textSize="15dp"
+        android:textColor="@color/white"
+        android:focusable="true"
+        android:layout_below="@+id/password"
+        android:layout_marginTop="10dp"/>
+
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/googleBtn"
+        android:layout_below="@id/loginBtn"
         android:id="@+id/loadingPb"/>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="40dp"
-        android:layout_below="@+id/loginBtn"
-        android:id="@+id/or">
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="20dp"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginEnd="20dp"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:layout_below="@+id/loginBtn"-->
+<!--        android:id="@+id/or">-->
 
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/grey_dark"
-            android:layout_toStartOf="@+id/orTxt"
-            android:layout_marginEnd="10dp"
-            android:layout_centerVertical="true"/>
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:background="@color/grey_dark"-->
+<!--            android:layout_toStartOf="@+id/orTxt"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:layout_centerVertical="true"/>-->
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/or"
-            android:textColor="@color/white"
-            android:layout_centerInParent="true"
-            android:id="@id/orTxt"/>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/or"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:id="@id/orTxt"/>-->
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/grey_dark"
-            android:layout_toEndOf="@+id/orTxt"
-            android:layout_marginStart="10dp"
-            android:layout_centerVertical="true"/>
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:background="@color/grey_dark"-->
+<!--            android:layout_toEndOf="@+id/orTxt"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:layout_centerVertical="true"/>-->
 
-    </RelativeLayout>
+<!--    </RelativeLayout>-->
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="@string/continue_with_google"
-        android:textAllCaps="true"
-        app:cornerRadius="10dp"
-        android:layout_below="@+id/or"
-        android:backgroundTint="#1896F1"
-        android:id="@+id/googleBtn"/>
+
 
     <RelativeLayout
         android:layout_width="wrap_content"

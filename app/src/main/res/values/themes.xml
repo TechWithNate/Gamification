@@ -3,7 +3,7 @@
     <style name="Base.Theme.Digilearn" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="colorPrimary">@color/main_dark</item>
+        <item name="colorPrimary">@color/light_blue</item>
         <item name="colorPrimaryVariant">@color/main_blue</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -12,6 +12,12 @@
         <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+
+        //red is the color of the pressed state and activated state
+        <item name="colorControlActivated">@android:color/holo_red_light</item>
+        //black is the color of the normal state
+        <item name="colorControlNormal">#E10606</item>
 
         <!--        Bottom Bar theme-->
 
@@ -29,6 +35,11 @@
         <!--        Ends here-->
 
 
+    </style>
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxStrokeColor">@color/grey_dark</item>
+        <item name="boxStrokeWidth">1dp</item>
     </style>
 
     <style name="Theme.Digilearn" parent="Base.Theme.Digilearn" />

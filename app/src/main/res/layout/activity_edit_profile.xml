@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/main_dark"
     tools:context=".EditProfile">
 
     <RelativeLayout
@@ -12,128 +12,140 @@
         android:layout_height="wrap_content">
 
 
-    <ImageView
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:src="@drawable/addimage"
-        android:scaleType="centerCrop"
-        android:id="@+id/user_img"
-        android:layout_marginTop="30dp"
-        android:layout_centerHorizontal="true"/>
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@drawable/addimage"
+            android:scaleType="centerCrop"
+            android:id="@+id/user_img"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"/>
 
-<!--    <ImageView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:src="@drawable/baseline_edit"-->
-<!--        android:scaleType="centerCrop"-->
-<!--        android:layout_toEndOf="@+id/user_img"-->
-<!--        android:layout_marginTop="60dp"-->
-<!--        android:layout_marginStart="-10dp"-->
-<!--        android:id="@+id/edit_img"/>-->
+        <!--    <ImageView-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:src="@drawable/baseline_edit"-->
+        <!--        android:scaleType="centerCrop"-->
+        <!--        android:layout_toEndOf="@+id/user_img"-->
+        <!--        android:layout_marginTop="60dp"-->
+        <!--        android:layout_marginStart="-10dp"-->
+        <!--        android:id="@+id/edit_img"/>-->
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/user_img"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical">
-
-        <EditText
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:hint="@string/first_name"
-            android:id="@+id/firstname"
-            android:textColor="@color/black"/>
+            android:layout_height="match_parent"
+            android:layout_below="@+id/user_img"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:hint="@string/last_name"
-            android:id="@+id/lastname"
-            android:textColor="@color/black"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:hint="@string/first_name"
+                android:id="@+id/firstname"
+                android:textColorHint="@color/white_grey"
+                android:textColor="@color/white_grey"/>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:hint="@string/email"
-            android:id="@+id/email"
-            android:textColor="@color/black"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:hint="@string/last_name"
+                android:id="@+id/lastname"
+                android:textColorHint="@color/white_grey"
+                android:textColor="@color/white_grey"/>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:hint="Student ID"
-            android:id="@+id/studentID"
-            android:textColor="@color/black"/>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:hint="Tel:"
-            android:id="@+id/tel"
-            android:textColor="@color/black"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:hint="@string/email"
+                android:id="@+id/email"
+                android:textColorHint="@color/white_grey"
+                android:textColor="@color/white_grey"/>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:hint="Facebook Link"
-            android:id="@+id/fb_link"
-            android:textColor="@color/black"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:hint="Student ID"
+                android:id="@+id/studentID"
+                android:textColorHint="@color/white_grey"
+                android:textColor="@color/white_grey"/>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:hint="GitHub Link"
-            android:id="@+id/git_hub"
-            android:textColor="@color/black"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:hint="Tel:"
+                android:id="@+id/tel"
+                android:textColorHint="@color/white_grey"
+                android:textColor="@color/white_grey"/>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:hint="Linked In"
-            android:id="@+id/linked_in"
-            android:textColor="@color/black"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:hint="Facebook Link"
+                android:id="@+id/fb_link"
+                android:textColorHint="@color/white_grey"
+                android:textColor="@color/white_grey"/>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:hint="Boi"
-            android:id="@+id/bio"
-            android:gravity="start"
-            android:singleLine="false"
-            android:textColor="@color/black"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:hint="GitHub Link"
+                android:id="@+id/git_hub"
+                android:textColorHint="@color/white_grey"
+                android:textColor="@color/white_grey"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            android:text="Save"
-            android:id="@+id/save_btn"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:hint="Linked In"
+                android:id="@+id/linked_in"
+                android:textColorHint="@color/white_grey"
+                android:textColor="@color/white_grey"/>
 
-    </LinearLayout>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:hint="Boi"
+                android:id="@+id/bio"
+                android:gravity="start"
+                android:singleLine="false"
+                android:textColorHint="@color/white_grey"
+                android:textColor="@color/white_grey"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp"
+                app:backgroundTint="@color/light_blue"
+                android:text="Save"
+                android:id="@+id/save_btn"/>
+
+        </LinearLayout>
 
 
     </RelativeLayout>
+
 
 </ScrollView>

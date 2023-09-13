@@ -9,8 +9,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -48,6 +50,7 @@ public class Home extends AppCompatActivity {
 
         //Initial Fragment
         replaceFragment(new HomeFragment());
+        toolbar.setTitle("Challenge");
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,13 +65,17 @@ public class Home extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 if (item.getItemId() == R.id.challenge){
-                    replaceFragment(new ChallengeFragment());
+                    replaceFragment(new HomeFragment());
+                    toolbar.setTitle("Challenge");
                 } else if (item.getItemId() == R.id.community) {
                     replaceFragment(new CommunityFragment());
+                    toolbar.setTitle("Community");
                 } else if (item.getItemId() == R.id.leaderboard) {
                     replaceFragment(new LeaderboardFragment());
+                    toolbar.setTitle("Leaderboard");
                 }else if (item.getItemId() == R.id.profile){
                     replaceFragment(new ProfileFragment());
+                    toolbar.setTitle("Profile");
                 }
 
                     return true;
@@ -162,6 +169,7 @@ public class Home extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frame_layout, fragment);
         fragmentTransaction.commit();
     }
+
 
 
 }

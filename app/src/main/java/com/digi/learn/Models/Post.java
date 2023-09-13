@@ -3,19 +3,20 @@ package com.digi.learn.Models;
 public class Post {
 
     private String uID;
-    User user;
+    private String name;
     private String title;
     private String date;
     private String postUrl;
     private String post;
     private String upvote;
     private String comment;
+    private String profilePicture;
 
     public Post() {
     }
 
-    public Post(User user, String title, String date, String postUrl, String post, String upvote, String comment) {
-        this.user = user;
+    public Post(String name, String title, String date, String postUrl, String post, String upvote, String comment) {
+        this.name = name;
         this.title = title;
         this.date = date;
         this.postUrl = postUrl;
@@ -24,12 +25,28 @@ public class Post {
         this.comment = comment;
     }
 
-    public User getUser() {
-        return user;
+    public String getuID() {
+        return uID;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setuID(String uID) {
+        this.uID = uID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getTitle() {

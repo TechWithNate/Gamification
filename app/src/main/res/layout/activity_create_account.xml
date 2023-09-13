@@ -79,8 +79,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:textColorHint="@color/white_grey"
-        app:boxStrokeColor="@color/white_grey"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        style="@style/TextInputLayoutStyle"
         android:layout_below="@+id/studentID"
         android:hint="@string/level">
 
@@ -208,18 +207,18 @@
 
         </RelativeLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:text="@string/continue_with_google"
-            android:textAllCaps="true"
-            app:cornerRadius="10dp"
-            android:layout_below="@+id/or"
-            android:backgroundTint="#1896F1"
-            android:id="@+id/googleBtn"/>
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="40dp"-->
+<!--            android:layout_marginStart="20dp"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            android:text="@string/continue_with_google"-->
+<!--            android:textAllCaps="true"-->
+<!--            app:cornerRadius="10dp"-->
+<!--            android:layout_below="@+id/or"-->
+<!--            android:backgroundTint="#1896F1"-->
+<!--            android:id="@+id/googleBtn"/>-->
 
 
     <RelativeLayout
@@ -228,7 +227,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/googleBtn"
+        android:layout_below="@+id/or"
         android:layout_centerHorizontal="true">
 
         <TextView

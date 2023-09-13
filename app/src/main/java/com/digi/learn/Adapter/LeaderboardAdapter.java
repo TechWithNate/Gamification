@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.digi.learn.Models.Leaderboard;
+import com.digi.learn.Models.User;
 import com.digi.learn.R;
 
 import java.util.ArrayList;
@@ -20,11 +21,11 @@ import java.util.ArrayList;
 public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.ViewHolder> {
 
     private final Context context;
-    private ArrayList<Leaderboard> leaderboards;
+    private ArrayList<User> users;
 
-    public LeaderboardAdapter(Context context, ArrayList<Leaderboard> leaderboards) {
+    public LeaderboardAdapter(Context context, ArrayList<User> users) {
         this.context = context;
-        this.leaderboards = leaderboards;
+        this.users = users;
     }
 
     @NonNull
@@ -39,15 +40,15 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
     @Override
     public void onBindViewHolder(@NonNull LeaderboardAdapter.ViewHolder holder, int position) {
 
-        Leaderboard board = leaderboards.get(position);
-        holder.user_points.setText(board.getPoints());
-        String img_url = board.getImg_url();
+        User board = users.get(position);
+        holder.user_points.setText(board.getPoints()+"");
+        String img_url = board.getProfilePicture();
         Glide.with(context)
                 .load(img_url)
                 .centerCrop()
                 .into(holder.user_img);
-        holder.position.setText(board.getPosition());
-        holder.username.setText(board.getUsername());
+        //holder.position.setText(board.getPosition());
+        holder.username.setText(board.getFirstname());
 
 
 
@@ -55,12 +56,12 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
 
     @Override
     public int getItemCount() {
-        return leaderboards.size();
+        return users.size();
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    public void setUserList(ArrayList<Leaderboard> userList) {
-        this.leaderboards = userList;
+    public void setUserList(ArrayList<User> userList) {
+        this.users = userList;
         notifyDataSetChanged();
     }
 

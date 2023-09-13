@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/main_dark">
+
+<!--    Layout showing two players involved-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:id="@+id/players_layout"
+        android:background="@color/grey_dark">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/you_card"
+            android:layout_toStartOf="@+id/vs_card"
+            android:layout_marginEnd="40dp"
+            android:layout_centerVertical="true"
+            app:cardCornerRadius="40dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/game_icon"
+                android:id="@+id/you_player"
+                android:scaleType="centerCrop"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/vs_card"
+            android:layout_centerInParent="true"
+            app:cardCornerRadius="40dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/game_icon"
+                android:id="@+id/vs"
+                android:scaleType="centerCrop"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/player2_card"
+            android:layout_toEndOf="@+id/vs_card"
+            android:layout_marginStart="40dp"
+            android:layout_centerVertical="true"
+            app:cardCornerRadius="40dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/game_icon"
+                android:id="@+id/player2"
+                android:scaleType="centerCrop"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/players_layout"
+        android:id="@+id/questions_layout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Software Engineering can be defined as...."
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/question"
+            android:fontFamily="@font/roboto_medium"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/question"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Answer One"
+                android:id="@+id/answer1"
+                android:backgroundTint="@color/dark_blue"
+                app:cornerRadius="10dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Answer Two"
+                android:id="@+id/answer2"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/dark_blue"
+                app:cornerRadius="10dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Answer Three"
+                android:id="@+id/answer3"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/dark_blue"
+                app:cornerRadius="10dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Answer Four"
+                android:layout_marginTop="30dp"
+                android:id="@+id/answer4"
+                android:backgroundTint="@color/dark_blue"
+                app:cornerRadius="10dp"/>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

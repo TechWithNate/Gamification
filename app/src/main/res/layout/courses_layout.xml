@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/grey_dark"
+    android:layout_height="match_parent">
+
+    
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="#556977"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select A Course"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_bold"
+                android:layout_marginStart="20dp"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+<!--Software Engineering-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/grey_dark"
+                android:id="@+id/course_layout_1"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/professional"
+                    android:scaleType="centerCrop"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/course1_image"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white_grey"
+                    android:layout_toEndOf="@+id/course1_image"
+                    android:layout_marginStart="10dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/course1"/>
+
+
+            </RelativeLayout>
+
+
+<!--Professional And Social Computing -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="@color/grey_dark"
+            android:id="@+id/course_layout_2"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/computer_organization"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:id="@+id/course2_image"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white_grey"
+                android:layout_toEndOf="@+id/course2_image"
+                android:layout_marginStart="10dp"
+                android:layout_centerVertical="true"
+                android:id="@+id/course2"/>
+
+
+        </RelativeLayout>
+
+<!--        Computer Org & Architecture-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/course_layout_3"
+            android:background="@color/grey_dark"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/software_engineering"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:id="@+id/course3_image"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white_grey"
+                android:layout_toEndOf="@+id/course3_image"
+                android:layout_marginStart="10dp"
+                android:layout_centerVertical="true"
+                android:id="@+id/course3"/>
+
+
+        </RelativeLayout>
+
+<!--        Research Methodology-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="@color/grey_dark"
+            android:id="@+id/course_layout_4"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/research_methodology_1"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:id="@+id/course4_image"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white_grey"
+                android:layout_toEndOf="@+id/course4_image"
+                android:layout_marginStart="10dp"
+                android:layout_centerVertical="true"
+                android:id="@+id/course4"/>
+
+
+        </RelativeLayout>
+
+
+<!--        System Analysis And Design-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="@color/grey_dark"
+            android:id="@+id/course_layout_5"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/system_analysis_and_design"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:id="@+id/course5_image"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white_grey"
+                android:layout_toEndOf="@+id/course5_image"
+                android:layout_marginStart="10dp"
+                android:layout_centerVertical="true"
+                android:id="@+id/course5"/>
+
+
+        </RelativeLayout>
+
+<!--        Data Communication and Telecommunication -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="@color/grey_dark"
+            android:id="@+id/course_layout_6"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/telecom"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:id="@+id/course6_image"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white_grey"
+                android:layout_toEndOf="@+id/course6_image"
+                android:layout_marginStart="10dp"
+                android:layout_centerVertical="true"
+                android:id="@+id/course6"/>
+
+
+        </RelativeLayout>
+
+<!--        Data Structures and Algorithm-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="@color/grey_dark"
+            android:id="@+id/course_layout_7"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/algorithm"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:id="@+id/course7_image"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white_grey"
+                android:layout_toEndOf="@+id/course7_image"
+                android:layout_marginStart="10dp"
+                android:layout_centerVertical="true"
+                android:id="@+id/course7"/>
+
+
+        </RelativeLayout>
+
+<!--        Operating System-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="@color/grey_dark"
+            android:id="@+id/course_layout_8"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/operating_system_t"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:id="@+id/course8_image"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white_grey"
+                android:layout_toEndOf="@+id/course8_image"
+                android:layout_marginStart="10dp"
+                android:layout_centerVertical="true"
+                android:id="@+id/course8"/>
+
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+</ScrollView>

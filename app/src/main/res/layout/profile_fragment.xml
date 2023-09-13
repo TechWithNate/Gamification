@@ -6,155 +6,181 @@
     android:layout_height="match_parent">
 
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:background="@color/light_blue"
+            android:id="@+id/bio_data">
 
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            app:cardCornerRadius="90dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:id="@+id/img_card">
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:cardCornerRadius="90dp"
+                app:strokeWidth="0dp"
+                app:cardElevation="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+                android:id="@+id/img_card">
 
-            <ImageView
+                <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_launcher_background"
                     android:scaleType="centerCrop"
+                    android:visibility="gone"
                     android:id="@+id/profile_img"/>
 
-        </com.google.android.material.card.MaterialCardView>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="90XP"
-            android:textColor="@color/white"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="30dp"
-            android:textStyle="bold"
-            android:fontFamily="@font/roboto_slab_bold"
-            android:textSize="15sp"
-            android:id="@+id/points"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lvl . 16"
-            android:textColor="@color/white"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="30dp"
-            android:textStyle="bold"
-            android:fontFamily="@font/roboto_slab_bold"
-            android:textSize="15sp"
-            android:id="@+id/game_level"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nathan"
-            android:layout_below="@+id/img_card"
-            android:layout_centerHorizontal="true"
-            android:textColor="@color/white"
-            android:layout_marginTop="5dp"
-            android:id="@+id/username"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Level 300"
-            android:layout_below="@+id/username"
-            android:layout_centerHorizontal="true"
-            android:textColor="@color/white"
-            android:id="@+id/course_level"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="N"
+                    android:gravity="center"
+                    android:textSize="80sp"
+                    android:textColor="@color/white"
+                    android:background="#FF0303"
+                    android:id="@+id/user_fore_name"
+                    android:fontFamily="@font/holden_mediun"/>
 
 
 
+            </com.google.android.material.card.MaterialCardView>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:id="@+id/socials"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/course_level">
 
-            <ImageView
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nathan"
+                        android:layout_below="@+id/img_card"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/roboto_slab_bold"
+                        android:textSize="20sp"
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/username"/>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/baseline_share"
-                android:id="@+id/facebook"/>
+                android:text="Level 300"
+                android:layout_below="@+id/username"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@color/white"
+                android:id="@+id/course_level"/>
 
-            <ImageView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/baseline_share"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:id="@+id/git_hub"/>
+                android:layout_below="@+id/course_level"
+                android:layout_marginTop="5dp"
+                android:id="@+id/score_layout"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
 
-            <ImageView
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="90XP |"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/roboto_slab_bold"
+                    android:textSize="15sp"
+                    android:id="@+id/points"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lvl . 16"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/roboto_slab_bold"
+                    android:textSize="15sp"
+                    android:id="@+id/game_level"/>
+
+
+            </LinearLayout>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/baseline_share"
-                android:id="@+id/linked_in"/>
+                android:layout_marginStart="10dp"
+                android:id="@+id/user_bio"
+                android:text="💫 Learning means change 💫"
+                android:textColor="@color/white"
+                android:layout_marginEnd="10dp"
+                android:layout_below="@+id/score_layout"
+                android:layout_centerHorizontal="true"/>
 
-        </LinearLayout>
+
+        </RelativeLayout>
 
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:backgroundTint="@color/grey_dark"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_below="@+id/socials"
-            android:id="@+id/badges"
-            android:layout_marginTop="30dp"
-            app:strokeWidth="0dp">
+            android:layout_height="90dp"
+            android:layout_below="@+id/bio_data"
+            android:layout_marginTop="-25dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:strokeWidth="0dp"
+            app:cardBackgroundColor="@color/grey_dark"
+            android:id="@+id/achieve_card">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/badge"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="40dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/new_user"
+                                android:scaleType="centerCrop"
+                                android:id="@+id/achieve_image"/>
+
+                        </com.google.android.material.card.MaterialCardView>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Badges"
+                    android:id="@+id/achieve_txt"
+                    android:text="Tap To View Your Achievements"
+                    android:layout_toEndOf="@+id/badge"
+                    android:layout_marginStart="10dp"
+                    android:layout_centerVertical="true"
+                    android:textSize="18sp"
                     android:textColor="@color/white"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginStart="20dp"
-                    android:id="@+id/b_title"/>
+                    android:gravity="center"
+                    android:layout_marginEnd="50dp"/>
 
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_below="@+id/b_title"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"/>
 
             </RelativeLayout>
 
 
         </com.google.android.material.card.MaterialCardView>
 
-<!--        About Me Section-->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="wrap_content"
             android:backgroundTint="@color/grey_dark"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_below="@+id/badges"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_below="@+id/achieve_card"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:id="@+id/about"
             app:strokeWidth="0dp">
 
@@ -166,26 +192,208 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="About Me"
-                    android:textColor="@color/white"
+                    android:textColor="@color/white_grey"
                     android:layout_marginTop="10dp"
                     android:layout_marginStart="10dp"
                     android:id="@+id/about_title"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/about_title"
-                    android:layout_marginStart="10dp"
-                    android:id="@+id/user_bio"
-                    android:text="@string/project_topic"
-                    android:textColor="@color/white"
-                    android:gravity="start"
-                    android:layout_marginEnd="10dp"
-                    android:lines="5"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_below="@id/about_title"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/baseline_phone"
+                            android:id="@+id/call_icon"/>
 
 
-            </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/contact"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/call_icon"
+                            android:layout_marginStart="20dp"
+                            android:text="02000200020"
+                            android:textColor="@color/white" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/baseline_keyboard_arrow_right"
+                            android:id="@+id/end_icon1"/>
+
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/baseline_mail"
+                            android:id="@+id/email_icon"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/email"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/email_icon"
+                            android:layout_marginStart="20dp"
+                            android:gravity="start|center"
+                            android:text="nathan@gmail.com"
+                            android:textColor="@color/white" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/baseline_keyboard_arrow_right"
+                            android:id="@+id/end_icon2"/>
+
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/github1"
+                            android:id="@+id/gitHub_icon"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/GitHub"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/gitHub_icon"
+                            android:layout_marginStart="20dp"
+                            android:gravity="start|center"
+                            android:text="@string/gitHub_addr"
+                            android:textColor="@color/white" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/baseline_keyboard_arrow_right"
+                            android:id="@+id/end_icon3"/>
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/linked_white"
+                            android:id="@+id/linked_in_icon"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/linked_in"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/linked_in_icon"
+                            android:layout_marginStart="20dp"
+                            android:gravity="start|center"
+                            android:text="@string/linked_in_addr"
+                            android:textColor="@color/white" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/baseline_keyboard_arrow_right"
+                            android:id="@+id/end_icon4"/>
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/facebook_white"
+                            android:id="@+id/facebook_icon"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/facebook"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/facebook_icon"
+                            android:layout_marginStart="20dp"
+                            android:gravity="start|center"
+                            android:text="nate@fb"
+                            android:textColor="@color/white" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/baseline_keyboard_arrow_right"
+                            android:id="@+id/end_icon5"/>
+
+
+                    </RelativeLayout>
+
+
+
+                </LinearLayout>
+
+
+             </RelativeLayout>
 
 
         </com.google.android.material.card.MaterialCardView>
@@ -195,12 +403,151 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/light_blue"
             app:cornerRadius="10dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:text="Logout"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="Edit Profile"
             android:id="@+id/logout"
             android:layout_below="@+id/about"
             android:layout_marginTop="10dp"/>
+
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="90XP"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_marginEnd="30dp"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:fontFamily="@font/roboto_slab_bold"-->
+<!--            android:textSize="15sp"-->
+<!--            android:id="@+id/points"/>-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Lvl . 16"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:layout_marginStart="30dp"-->
+<!--            android:layout_marginEnd="30dp"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:fontFamily="@font/roboto_slab_bold"-->
+<!--            android:textSize="15sp"-->
+<!--            android:id="@+id/game_level"/>-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Nathan"-->
+<!--            android:layout_below="@+id/img_card"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:id="@+id/username"/>-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Level 300"-->
+<!--            android:layout_below="@+id/username"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:id="@+id/course_level"/>-->
+
+
+
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:id="@+id/socials"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_below="@+id/course_level">-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/baseline_share"-->
+<!--                android:id="@+id/facebook"/>-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/baseline_share"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:layout_marginEnd="20dp"-->
+<!--                android:id="@+id/git_hub"/>-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/baseline_share"-->
+<!--                android:id="@+id/linked_in"/>-->
+
+<!--        </LinearLayout>-->
+
+
+
+
+<!--&lt;!&ndash;        About Me Section&ndash;&gt;-->
+<!--        <com.google.android.material.card.MaterialCardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="150dp"-->
+<!--            android:backgroundTint="@color/grey_dark"-->
+<!--            android:layout_marginStart="30dp"-->
+<!--            android:layout_marginEnd="30dp"-->
+<!--            android:layout_below="@+id/badges"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:id="@+id/about"-->
+<!--            app:strokeWidth="0dp">-->
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="About Me"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:layout_marginStart="10dp"-->
+<!--                    android:id="@+id/about_title"/>-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@+id/about_title"-->
+<!--                    android:layout_marginStart="10dp"-->
+<!--                    android:id="@+id/user_bio"-->
+<!--                    android:text="@string/project_topic"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:gravity="start"-->
+<!--                    android:layout_marginEnd="10dp"-->
+<!--                    android:lines="5"-->
+<!--                    android:layout_marginTop="10dp"/>-->
+
+
+<!--            </RelativeLayout>-->
+
+
+<!--        </com.google.android.material.card.MaterialCardView>-->
+
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:backgroundTint="@color/light_blue"-->
+<!--            app:cornerRadius="10dp"-->
+<!--            android:layout_marginStart="30dp"-->
+<!--            android:layout_marginEnd="30dp"-->
+<!--            android:text="Logout"-->
+<!--            android:id="@+id/logout"-->
+<!--            android:layout_below="@+id/about"-->
+<!--            android:layout_marginTop="10dp"/>-->
 
 
     </RelativeLayout>

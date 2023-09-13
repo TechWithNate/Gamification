@@ -19,12 +19,14 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
+import com.digi.learn.Achievements;
 import com.digi.learn.Login;
 import com.digi.learn.Models.User;
 import com.digi.learn.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -45,6 +47,7 @@ public class ProfileFragment extends Fragment {
     private TextView user_bio;
     private ImageView fb, git, linked;
     private MaterialButton logoutBtn;
+
     private TextView points;
     private TextView game_level;
 
@@ -55,6 +58,7 @@ public class ProfileFragment extends Fragment {
     private FirebaseDatabase firebaseDatabase;
     private StorageReference storageReference;
     private String imageUriAccessToken;
+    private MaterialCardView achievements;
 
 
     @Nullable
@@ -64,87 +68,90 @@ public class ProfileFragment extends Fragment {
         initViews();
 
 
-
-        storageReference = firebaseStorage.getReference();
-        storageReference.child("images").child(firebaseAuth.getUid()).child("Profile Pics")
-                        .getDownloadUrl()
-                                .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                    @Override
-                                    public void onSuccess(Uri uri) {
-                                        imageUriAccessToken = uri.toString();
-                                        Glide.with(getContext())
-                                                .load(uri)
-                                                .centerCrop()
-                                                .into(profile_img);
-                                    }
-                                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getContext(), "Failed: to fetch image "+e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-
-        DatabaseReference databaseReference = firebaseDatabase.getReference("Users").child(firebaseAuth.getUid());
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-               User user = snapshot.getValue(User.class);
-               if (null != user){
-                   username.setText(user.getFirstname());
-                   course_level.setText(user.getStudentLevel());
-                   user_bio.setText(user.getUserBio());
-                   points.setText(user.getPoints() +"XP");
-                   game_level.setText("Lvl "+String.valueOf(user.getGameLevel()));
-               }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getContext(), "Failed to fetch user details: "+error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
+//        achievements.setOnClickListener(v -> {
+//            startActivity(new Intent(getContext(), Achievements.class));
+//        });
+//
+//        storageReference = firebaseStorage.getReference();
+//        storageReference.child("images").child(firebaseAuth.getUid()).child("Profile Pics")
+//                        .getDownloadUrl()
+//                                .addOnSuccessListener(new OnSuccessListener<Uri>() {
+//                                    @Override
+//                                    public void onSuccess(Uri uri) {
+//                                        imageUriAccessToken = uri.toString();
+//                                        Glide.with(getContext())
+//                                                .load(uri)
+//                                                .centerCrop()
+//                                                .into(profile_img);
+//                                    }
+//                                }).addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Toast.makeText(getContext(), "Failed: to fetch image "+e.getMessage(), Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//
+//
+//        DatabaseReference databaseReference = firebaseDatabase.getReference("Users").child(firebaseAuth.getUid());
+//        databaseReference.addValueEventListener(new ValueEventListener() {
+//            @SuppressLint("SetTextI18n")
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//               User user = snapshot.getValue(User.class);
+//               if (null != user){
+//                   username.setText(user.getFirstname());
+//                   course_level.setText(user.getStudentLevel());
+//                   user_bio.setText(user.getUserBio());
+//                   points.setText(user.getPoints() +"XP");
+//                   game_level.setText("Lvl "+String.valueOf(user.getGameLevel()));
+//               }
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                Toast.makeText(getContext(), "Failed to fetch user details: "+error.getMessage(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//
+//
+        achievements.setOnClickListener(v -> {
+            startActivity(new Intent(getContext(), Achievements.class));
         });
-
-
-
-//        achievement.setOnClickListener(v -> {
+////
+////        leaderboard.setOnClickListener(v -> {
+////            replaceFragment(new LeaderboardFragment());
+////        });
+////
+////        share.setOnClickListener(v -> {
+////            Intent intent = new Intent(Intent.ACTION_SEND);
+////            intent.setType("text/plain");
+////            String body = "Share with your friends an improved way of learning computer science theoretical courses";
+////            String link = "https://play.google.com/store/apps/details?id=com.nate.smile";
+////            intent.putExtra(Intent.EXTRA_TEXT, body);
+////            intent.putExtra(Intent.EXTRA_TEXT, link);
+////            startActivity(Intent.createChooser(intent, "Share using"));
+////        });
+////
+////        feedback.setOnClickListener(v -> {
+////            replaceFragment(new FeedbackFragment());
+////        });
+////
+////        about.setOnClickListener(v -> {
+////            replaceFragment(new AboutFragment());
+////        });
+////
+////        privacy.setOnClickListener(v -> {
+////
+////        });
+//
+//        logoutBtn.setOnClickListener(v -> {
+//            firebaseAuth.signOut();
+//            Intent intent = new Intent(getContext(), Login.class);
+//            startActivity(intent);
+//            getActivity().finish();
 //
 //        });
 //
-//        leaderboard.setOnClickListener(v -> {
-//            replaceFragment(new LeaderboardFragment());
-//        });
-//
-//        share.setOnClickListener(v -> {
-//            Intent intent = new Intent(Intent.ACTION_SEND);
-//            intent.setType("text/plain");
-//            String body = "Share with your friends an improved way of learning computer science theoretical courses";
-//            String link = "https://play.google.com/store/apps/details?id=com.nate.smile";
-//            intent.putExtra(Intent.EXTRA_TEXT, body);
-//            intent.putExtra(Intent.EXTRA_TEXT, link);
-//            startActivity(Intent.createChooser(intent, "Share using"));
-//        });
-//
-//        feedback.setOnClickListener(v -> {
-//            replaceFragment(new FeedbackFragment());
-//        });
-//
-//        about.setOnClickListener(v -> {
-//            replaceFragment(new AboutFragment());
-//        });
-//
-//        privacy.setOnClickListener(v -> {
-//
-//        });
-
-        logoutBtn.setOnClickListener(v -> {
-            firebaseAuth.signOut();
-            Intent intent = new Intent(getContext(), Login.class);
-            startActivity(intent);
-            getActivity().finish();
-
-        });
-
 
         return view;
 
@@ -159,6 +166,7 @@ public class ProfileFragment extends Fragment {
         user_bio = view.findViewById(R.id.user_bio);
         game_level = view.findViewById(R.id.game_level);
         points = view.findViewById(R.id.points);
+        achievements = view.findViewById(R.id.achieve_card);
 
 
         firebaseAuth = FirebaseAuth.getInstance();

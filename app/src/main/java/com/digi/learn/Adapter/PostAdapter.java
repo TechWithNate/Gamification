@@ -38,10 +38,10 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         Post userPost = post.get(position);
-        holder.username.setText(userPost.getUser().getFirstname());
+        holder.username.setText(userPost.getName());
         holder.title.setText(userPost.getTitle());
         Glide.with(context)
-                .load(userPost.getUser().getProfilePicture())
+                .load(userPost.getProfilePicture())
                 .centerCrop()
                 .into(holder.profile_img);
         String post_img = null;
@@ -61,6 +61,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
         holder.upvote_count.setText(userPost.getUpvote());
         holder.comment_count.setText(userPost.getComment());
+
+
 
     }
 

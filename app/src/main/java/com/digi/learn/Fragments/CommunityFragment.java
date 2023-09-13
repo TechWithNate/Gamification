@@ -26,6 +26,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -52,6 +53,8 @@ public class CommunityFragment extends Fragment {
         mainFab = view.findViewById(R.id.add_post);
         imageFab = view.findViewById(R.id.image_post);
         textFab = view.findViewById(R.id.text_post);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("Posts");
 
         mainFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,11 +91,11 @@ public class CommunityFragment extends Fragment {
         user = new User();
 
         posts = new ArrayList<>();
-        posts.add(new Post(user, "Hi there", "12:09", "https://cdn.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg", "", "34", "5"));
-        posts.add(new Post(user, "Hi there", "12:09", "https://cdn.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg", "This is my first Game here", "34", "5"));
-        posts.add(new Post(user, "Hi there", "12:09", "https://cdn.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg", "", "34", "5"));
-        posts.add(new Post(user, "Hi there", "12:09", "https://cdn.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg", "This is my first Game here", "34", "5"));
-        posts.add(new Post(user, "Hi there", "12:09", "https://cdn.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg", "", "34", "5"));
+//        posts.add(new Post(user, "Hi there", "12:09", "https://cdn.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg", "", "34", "5"));
+//        posts.add(new Post(user, "Hi there", "12:09", "https://cdn.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg", "This is my first Game here", "34", "5"));
+//        posts.add(new Post(user, "Hi there", "12:09", "https://cdn.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg", "", "34", "5"));
+//        posts.add(new Post(user, "Hi there", "12:09", "https://cdn.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg", "This is my first Game here", "34", "5"));
+//        posts.add(new Post(user, "Hi there", "12:09", "https://cdn.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg", "", "34", "5"));
 
         adapter = new PostAdapter(posts, getContext());
 
@@ -112,32 +115,20 @@ public class CommunityFragment extends Fragment {
     private void getAllPosts(){
 
         posts.clear();
-        databaseReference.addChildEventListener(new ChildEventListener() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                posts.add(snapshot.getValue(Post.class));
-                adapter.notifyDataSetChanged();
-            }
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    Post post = dataSnapshot.getValue(Post.class);
+                    posts.add(post);
 
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                }
                 adapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getContext(), "Error: "+error.getMessage(), Toast.LENGTH_SHORT).show();
+
             }
         });
 

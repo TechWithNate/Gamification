@@ -6,7 +6,7 @@
 
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="colorPrimary">@color/main_dark</item>
+        <item name="colorPrimary">@color/light_blue</item>
         <item name="colorPrimaryVariant">@color/main_blue</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -16,6 +16,11 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
 
+
+<!--        //red is the color of the pressed state and activated state-->
+<!--        <item name="colorControlActivated">@android:color/holo_red_light</item>-->
+<!--        //black is the color of the normal state-->
+<!--        <item name="colorControlNormal">#E10606</item>-->
 
 <!--        Bottom Bar theme-->
 

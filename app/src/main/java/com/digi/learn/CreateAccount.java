@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,17 +17,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.digi.learn.Models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Arrays;
@@ -47,6 +45,9 @@ public class CreateAccount extends AppCompatActivity {
     ProgressBar loadingPb;
 
     String user_level;
+    String studentIdPattern = "^[0-9]{8}[a-zA-Z]$";
+    // Regular expression pattern for a valid name (only alphabets)
+    String namePattern = "^[a-zA-Z]+$";
 
     FirebaseAuth firebaseAuth;
 
@@ -103,11 +104,21 @@ public class CreateAccount extends AppCompatActivity {
         if (firstName.getText().toString().isEmpty()){
             Toast.makeText(this, "Enter First Name", Toast.LENGTH_SHORT).show();
             firstName.requestFocus();
+        }else if (!firstName.getText().toString().trim().matches(namePattern)){
+            Toast.makeText(this, "Enter a valid first name", Toast.LENGTH_SHORT).show();
+            firstName.requestFocus();
+        }else if (!lastname.getText().toString().trim().matches(namePattern)){
+            Toast.makeText(this, "Enter a valid last name", Toast.LENGTH_SHORT).show();
+            lastname.requestFocus();
         }else if (lastname.getText().toString().isEmpty()){
             Toast.makeText(this, "Enter Last Name", Toast.LENGTH_SHORT).show();
             lastname.requestFocus();
-        }else if (studentID.getText().toString().isEmpty()){
+        }else if (studentID.getText().toString().trim().isEmpty()) {
             Toast.makeText(this, "Enter Your ID", Toast.LENGTH_SHORT).show();
+            studentID.requestFocus();
+        }else if (!studentID.getText().toString().trim().matches(studentIdPattern)){
+            // Invalid student ID, show an error message to the user
+            Toast.makeText(this, "Invalid student ID. Please enter a valid ID.", Toast.LENGTH_SHORT).show();
             studentID.requestFocus();
         }else if (textField.toString().isEmpty()){
             Toast.makeText(this, "Select Level", Toast.LENGTH_SHORT).show();
@@ -132,6 +143,29 @@ public class CreateAccount extends AppCompatActivity {
 
     }
 
+    private void checkDataValidity(){
+        // Define an InputFilter that disallows numbers
+        InputFilter filterNoNumbers = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                for (int i = start; i < end; i++) {
+                    if (Character.isDigit(source.charAt(i))) {
+                        Toast.makeText(CreateAccount.this, "In correct name format", Toast.LENGTH_SHORT).show();
+                        return ""; // Disallow the input character (a number)
+                    }
+                }
+                return null; // Accept the input character
+            }
+        };
+
+    // Apply the InputFilter to the first name EditText
+        firstName.setFilters(new InputFilter[]{filterNoNumbers});
+
+    // Apply the InputFilter to the last name EditText
+        lastname.setFilters(new InputFilter[]{filterNoNumbers});
+
+    }
+
 
     private void createAccount(String email, String password){
 
@@ -141,7 +175,7 @@ public class CreateAccount extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             loadingPb.setVisibility(View.GONE);
-                            Intent intent = new Intent(CreateAccount.this, EditProfile.class);
+                            Intent intent = new Intent(CreateAccount.this, CreateProfile.class);
                             intent.putExtra("firstName", firstName.getText().toString());
                             intent.putExtra("lastName", lastname.getText().toString());
                             intent.putExtra("email", email);

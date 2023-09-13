@@ -29,5 +29,9 @@
     <string name="lvl">Lvl</string>
     <string name="bullet1">\u25BA</string>
     <string name="bullet">\u25CF</string>
+    <string name="linked_in_addr">nate@linkedIn</string>
+    <string name="gitHub_addr">\@techwithnate</string>
+    <string name="data_structures_algorithms"><![CDATA[Data Structures & Algorithms]]></string>
+    <string name="achievement_icon">Achievement Icon</string>
 
 </resources>

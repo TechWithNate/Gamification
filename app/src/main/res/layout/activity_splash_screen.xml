@@ -18,7 +18,7 @@
         <ImageView
             android:layout_width="80dp"
             android:layout_height="match_parent"
-            android:src="@drawable/game_icon"
+            android:src="@drawable/white_app_icon_removebg_preview"
             android:scaleType="centerCrop"
             android:id="@+id/app_icon"/>
 

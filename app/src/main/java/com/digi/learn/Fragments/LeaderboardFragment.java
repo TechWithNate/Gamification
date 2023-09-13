@@ -16,6 +16,11 @@ import com.digi.learn.Adapter.LeaderboardAdapter;
 import com.digi.learn.Models.Leaderboard;
 import com.digi.learn.Models.User;
 import com.digi.learn.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -32,8 +37,11 @@ public class LeaderboardFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     FirebaseFirestore db;
+    private ArrayList<User> users;
     CollectionReference usersRef;
     LeaderboardAdapter adapter;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
 
     @Nullable
     @Override
@@ -41,39 +49,64 @@ public class LeaderboardFragment extends Fragment {
         view = inflater.inflate(R.layout.leaderboard_fragment, container, false);
         db = FirebaseFirestore.getInstance();
         usersRef = db.collection("users");
-
-
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("Users");
+        users = new ArrayList<>();
         recyclerView = view.findViewById(R.id.leaderboard_recycler);
         recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(getContext());
+        adapter = new LeaderboardAdapter(this.getContext(), users);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(layoutManager);
+
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    User user = dataSnapshot.getValue(User.class);
+                    users.add(user);
+
+                }
+                adapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
 
 
 
 
-        usersRef.orderBy("points", Query.Direction.ASCENDING)
-                        .addSnapshotListener(new EventListener<QuerySnapshot>() {
-                            @Override
-                            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                                if (error != null) {
-                                    Toast.makeText(getContext(), "Error fetching users: "+error, Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
 
 
-                                ArrayList<Leaderboard> leaderboards = new ArrayList<>();
-                                adapter = new LeaderboardAdapter(getContext(), leaderboards);
-                                if (null != value){
-                                    for (QueryDocumentSnapshot document : value) {
-                                        Leaderboard user = document.toObject(Leaderboard.class);
-                                        leaderboards.add(user);
-                                    }
-                                }
-
-
-                                adapter.setUserList(leaderboards);
-                            }
-                        });
+//        usersRef.orderBy("points", Query.Direction.ASCENDING)
+//                        .addSnapshotListener(new EventListener<QuerySnapshot>() {
+//                            @Override
+//                            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+//                                if (error != null) {
+//                                    Toast.makeText(getContext(), "Error fetching users: "+error, Toast.LENGTH_SHORT).show();
+//                                    return;
+//                                }
+//
+//
+//                                ArrayList<User> leaderboards = new ArrayList<>();
+//                                adapter = new LeaderboardAdapter(getContext(), leaderboards);
+//                                if (null != value){
+//                                    for (QueryDocumentSnapshot document : value) {
+//                                        User user = document.toObject(User.class);
+//                                        leaderboards.add(user);
+//                                    }
+//                                }
+//                                adapter.setUserList(leaderboards);
+//                            }
+//                        });
 
 
 
@@ -93,9 +126,7 @@ public class LeaderboardFragment extends Fragment {
 
 
 
-               layoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(layoutManager);
+
 
         return view;
 

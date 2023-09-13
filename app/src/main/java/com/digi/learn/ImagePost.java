@@ -122,7 +122,7 @@ public class ImagePost extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
-        if (requestCode == PICK_IMAGE && requestCode == RESULT_OK){
+        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK){
             if (data != null) {
                 imagePath = data.getData();
                 post_image.setImageURI(imagePath);

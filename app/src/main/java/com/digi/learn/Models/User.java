@@ -17,6 +17,7 @@ public class User {
 
     private int points;
     private int gameLevel;
+    private String selectedCourse;
 
 
     public User() {
@@ -173,5 +174,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getSelectedCourse() {
+        return selectedCourse;
+    }
+
+    public void setSelectedCourse(String selectedCourse) {
+        this.selectedCourse = selectedCourse;
     }
 }

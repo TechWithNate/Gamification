@@ -1,109 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/main_dark">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:strokeWidth="0dp"
+        android:backgroundTint="@color/grey_dark">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/title_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Code Challenge"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/desc_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_txt"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="50dp"
+                android:text="Choose your preferable course and select and opponent to test your might"
+                android:textColor="@color/white_grey" />
 
 
-<!--    <com.google.android.material.appbar.AppBarLayout-->
-<!--        android:id="@+id/appBarLayout"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content">-->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_below="@+id/desc_txt"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:strokeWidth="0dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/light_blue">
 
-<!--        <com.google.android.material.appbar.MaterialToolbar-->
-<!--            android:id="@+id/topAppBar"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="?attr/actionBarSize"-->
-<!--            app:title="Challenge"-->
-<!--            app:navigationIcon="@drawable/ic_menu"-->
-<!--            android:background="@color/light_blue"-->
-<!--            app:titleTextColor="@color/white"-->
-<!--            app:titleCentered="true"-->
-<!--            app:navigationIconTint="@color/white"-->
-<!--            />-->
-
-<!--    </com.google.android.material.appbar.AppBarLayout>-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:background="@color/main_dark"-->
-<!--        android:orientation="vertical"-->
-<!--        android:id="@+id/algo">-->
+                    <RelativeLayout
+                        android:id="@+id/player"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/select_opponent_btn"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginBottom="5dp">
 
-<!--        <RelativeLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="220dp"-->
-<!--            android:background="@color/grey_dark">-->
+                        <!--    Player-->
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_toStartOf="@+id/vs"
+                            android:layout_marginEnd="50dp"
+                            android:layout_height="wrap_content">
 
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Data Structure and Algorithm"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:layout_marginStart="20dp"-->
-<!--                android:textSize="18sp"-->
-<!--                android:id="@+id/title1"/>-->
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/player_card"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_above="@+id/you"
+                                android:layout_centerHorizontal="true"
+                                app:cardCornerRadius="25dp">
 
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_below="@+id/title1"-->
-<!--                android:text="Challenge your opponent when you select this course"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:layout_marginStart="20dp"-->
-<!--                android:layout_marginTop="5dp"-->
-<!--                android:id="@+id/desc1"/>-->
+                                <ImageView
+                                    android:id="@+id/player_image"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/game_icon" />
 
+                            </com.google.android.material.card.MaterialCardView>
 
-<!--            <com.google.android.material.card.MaterialCardView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="120dp"-->
-<!--                android:layout_below="@+id/desc1"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:layout_marginStart="20dp"-->
-<!--                android:layout_marginEnd="20dp">-->
+                            <TextView
+                                android:id="@+id/you"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true"
+                                android:text="You"
+                                android:textSize="12sp"
+                                android:textColor="@color/white" />
 
-<!--                <RelativeLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent">-->
-
-<!--                    <ImageView-->
-<!--                        android:layout_width="50dp"-->
-<!--                        android:layout_height="50dp"-->
-<!--                        android:src="@drawable/ic_launcher_background"-->
-<!--                        android:scaleType="centerCrop"-->
-<!--                        android:layout_marginTop="10dp"-->
-<!--                        android:layout_marginStart="40dp"/>-->
+                        </RelativeLayout>
+                        <!--                        End of Player-->
 
 
-<!--                    <ImageView-->
-<!--                        android:layout_width="30dp"-->
-<!--                        android:layout_height="30dp"-->
-<!--                        android:scaleType="centerCrop"-->
-<!--                        android:src="@drawable/ic_launcher_background"-->
-<!--                        android:layout_centerHorizontal="true"-->
-<!--                        android:layout_marginTop="20dp"/>-->
+<!--                        VS -->
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/vs_img"
+                            android:scaleType="centerCrop"
+                            android:id="@+id/vs"/>
+
+<!--                        End of VS-->
 
 
+                        <!--                       Opponent -->
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_toEndOf="@+id/vs"
+                            android:layout_marginStart="50dp"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/opponent_card"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_above="@+id/opponent"
+                                android:layout_centerHorizontal="true"
+                                app:cardCornerRadius="25dp">
+
+                                <ImageView
+                                    android:id="@+id/opponent_image"
+                                    android:layout_width="55dp"
+                                    android:layout_height="44dp"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/game_icon" />
+
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <TextView
+                                android:id="@+id/opponent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true"
+                                android:text="Opponent"
+                                android:textSize="12sp"
+                                android:textColor="@color/white" />
+
+                        </RelativeLayout>
+                        <!--                        End of Opponent-->
+
+                    </RelativeLayout>
+
+                    <!--                    Start Challenge Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/select_opponent_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="20dp"
+                        app:backgroundTint="@color/main_dark"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Start a Course Challenge"
+                        app:cornerRadius="5dp" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
 
 
-<!--                </RelativeLayout>-->
-
-<!--            </com.google.android.material.card.MaterialCardView>-->
+        </RelativeLayout>
 
 
-<!--        </RelativeLayout>-->
+    </com.google.android.material.card.MaterialCardView>
 
-
-
-
-<!--    </LinearLayout>-->
-
-    
-
-    
 
 </RelativeLayout>
