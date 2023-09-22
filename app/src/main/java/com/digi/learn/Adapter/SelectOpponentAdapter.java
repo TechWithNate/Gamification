@@ -57,6 +57,7 @@ public class SelectOpponentAdapter extends FirebaseRecyclerAdapter<User, SelectO
             intent.putExtra("opponentLevel", user.getGameLevel());
             intent.putExtra("opponentProfileImage", user.getProfilePicture());
             intent.putExtra("userId", user.getuID());
+            intent.putExtra("firebaseNotificationToken", user.getFirebaseNotificationToken());
 
             // Start the target activity
             context.startActivity(intent);

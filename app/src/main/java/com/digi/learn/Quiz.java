@@ -30,8 +30,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.messaging.FirebaseMessaging;
+
+
 
 import org.w3c.dom.Text;
 import java.util.ArrayList;
@@ -73,12 +77,16 @@ public class Quiz extends AppCompatActivity {
     String oppProfileImage;
     String playerImageToken;
     TextView playerScore;
+    private String opponentId;
 
     int score = 0; // Add a variable to keep track of the user's score
     boolean answered = false; // Add a variable to check if the user has already answered
     int currentQuestionIndex = 0;
     String selectedAnswer = "";
     String correctAnswer;
+    String quizKey;
+    DatabaseReference quizzesRef;
+    private String firebaseNotificationToken;
 
 
     @Override
@@ -93,6 +101,8 @@ public class Quiz extends AppCompatActivity {
             oppName = intent.getStringExtra("opponentName");
             oppLevel = intent.getStringExtra("opponentLevel");
             oppProfileImage = intent.getStringExtra("opponentProfileImage");
+            opponentId =  intent.getStringExtra("userId");
+            firebaseNotificationToken = intent.getStringExtra("firebaseNotificationToken");
             Toast.makeText(this, "This is the user ID"+ intent.getStringExtra("userId"), Toast.LENGTH_SHORT).show();
         }
 
@@ -116,6 +126,22 @@ public class Quiz extends AppCompatActivity {
         playerDetails();
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Courses");
+
+
+        quizzesRef = FirebaseDatabase.getInstance().getReference("Users")
+                .child(firebaseAuth.getUid()).child("quizzes");
+//        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users/"+firebaseAuth.getUid()); // Replace "user1" with the current user's ID
+//        DatabaseReference quizzesRef = userRef.child("quizzes");
+        quizKey = quizzesRef.push().getKey(); // Generate a unique key for the quiz
+
+        // Prepare the quiz data
+        Map<String, Object> quizData = new HashMap<>();
+        quizData.put("courseName", "Course 1"); // Set the course name as needed
+        quizData.put("opponentId", opponentId); // Set the opponent's ID as needed
+        // Add questions and answers to the quizData map as needed
+
+        // Set the quiz data under the generated key
+        quizzesRef.child(quizKey).setValue(quizData);
 
         // Fetch the initial set of questions
         fetchQuestions();
@@ -234,10 +260,13 @@ public class Quiz extends AppCompatActivity {
             return;
         }
 
+
+
         for (int i = 0; i < 5; i++) {
             int randomIndex = randomIndices.get(i);
 
             // Query Firebase to get the question and its choices
+            int finalI = i;
             databaseReference.child("professional_and_social_computing")
                     .child("question" + (randomIndex + 1)) // Firebase indices start at 1
                     .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -255,6 +284,14 @@ public class Quiz extends AppCompatActivity {
 
                             // Now you have the question and its choices, you can display them
                             // and set up radio buttons for the choices
+                            Map<String, Object> quiz = new HashMap<>();
+                            quiz.put("text", questionText); // Set the course name as needed
+                            quiz.put("choices", choices);
+                            quiz.put("correctChoice", correctAnswer);
+                            quizzesRef.child(quizKey).child("question"+ (finalI +1)).setValue(quiz);
+                           // Toast.makeText(Quiz.this, "Quiz "+ currentQuestionIndex, Toast.LENGTH_SHORT).show();
+
+
                             displayQuestion(questionText, choices);
                         }
 
@@ -292,6 +329,27 @@ public class Quiz extends AppCompatActivity {
 
 
     private void finishQuiz(){
+
+//        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Users/"+firebaseAuth.getUid()); // Replace "user1" with the current user's ID
+//        DatabaseReference quizzesRef = userRef.child("quizzes");
+//
+//        String quizKey = quizzesRef.push().getKey(); // Generate a unique key for the quiz
+//
+//        // Prepare the quiz data
+//        Map<String, Object> quizData = new HashMap<>();
+//        quizData.put("courseName", "Course 1");
+//        quizData.put("opponentId", opponentId);
+//        // Add questions and answers as needed
+//
+//        // Set the quiz data under the generated key
+//        quizzesRef.child(quizKey).setValue(quizData);
+
+        FMCSend.pushNotification(
+                Quiz.this,
+                firebaseNotificationToken,
+                "Challenge",
+                playerName.getText().toString()+" Challenged You"
+        );
 
         Intent intent = new Intent(Quiz.this, Results.class);
         intent.putExtra("score", score);
@@ -331,6 +389,43 @@ public class Quiz extends AppCompatActivity {
 
     }
 
+
+    // Send notification to Player2
+    private void sendNotificationToPlayer2(String quizKey) {
+        // Create a data payload with the quizKey
+        Map<String, String> dataPayload = new HashMap<>();
+        dataPayload.put("quizKey", quizKey);
+
+        // Create an FCM message
+
+        FMCSend.pushNotification(
+                Quiz.this,
+                "cOgDz1F_QtO190wZQ9ZtoS:APA91bHfUR-06TBiP5FRMpDHC6ZnUon4J3NQh28nGWFfEdxlR6A6U-Q4guYS2Svfbm15AyqprN5DOGkda4cbKwNKmB0Bj19imugbYdSK-SnWqrqD538ivfuA9fHt4M9FytT-AvYaJ3PQ",
+                "Challenge",
+                oppName+"Challenge You in Course Name"
+        );
+
+
+
+//        Message message = Message.builder()
+//                .setNotification(Notification.builder()
+//                        .setTitle("Quiz Notification")
+//                        .setBody("Player1 has started a quiz.")
+//                        .build())
+//                .putAllData(dataPayload)
+//                .setToken(firebaseNotificationToken) // Replace with Player2's FCM token
+//                .build();
+//
+//        Messag
+//
+//        // Send the message
+//        try {
+//            String response = FirebaseMessaging.getInstance().send(message);
+//            // Handle the response if needed
+//        } catch (FirebaseMessagingException e) {
+//            // Handle the exception
+//        }
+    }
 
 
 }

@@ -1,5 +1,7 @@
 package com.digi.learn;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,20 +11,24 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.digi.learn.Models.User;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -64,6 +70,7 @@ public class CreateProfile extends AppCompatActivity {
     private String imageUriAccessToken;
     private int points = 10;
     private int gameLevel = 1;
+    private String firebaseNotificationToken;
 
 
     @Override
@@ -85,6 +92,18 @@ public class CreateProfile extends AppCompatActivity {
 
 
 
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            return;
+                        }
+                        // Get new FCM registration token
+                        firebaseNotificationToken = task.getResult();
+
+                    }
+                });
         user_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -182,7 +201,7 @@ public class CreateProfile extends AppCompatActivity {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = firebaseDatabase.getReference("Users").child(firebaseAuth.getUid());
 
-        User user = new User(firebaseAuth.getUid(), firstname.getText().toString(), lastname.getText().toString(), studentLevel, studentID.getText().toString(), email.getText().toString(), imageUriAccessToken, bio.getText().toString(), linked_in.getText().toString(), git.getText().toString(), tel.getText().toString(), fb.getText().toString(), points, gameLevel);
+        User user = new User(firebaseAuth.getUid(), firstname.getText().toString(), lastname.getText().toString(), studentLevel, studentID.getText().toString(), email.getText().toString(), imageUriAccessToken, bio.getText().toString(), linked_in.getText().toString(), git.getText().toString(), tel.getText().toString(), fb.getText().toString(), points, gameLevel, firebaseNotificationToken);
         databaseReference.setValue(user);
         Toast.makeText(this, "Profile Created Successfully", Toast.LENGTH_SHORT).show();
         sendToFireStore();
@@ -245,6 +264,9 @@ public class CreateProfile extends AppCompatActivity {
         userData.put("points", points);
         userData.put("position", 0);
         userData.put("gameLevel", gameLevel);
+        userData.put("firebaseNotificationToken", firebaseNotificationToken);
+
+
 
         documentReference.set(userData).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
@@ -258,4 +280,24 @@ public class CreateProfile extends AppCompatActivity {
             }
         });
     }
+
+
+    //Create Firebase Notification Toke
+    private void notificationToken(){
+
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            return;
+                        }
+                        // Get new FCM registration token
+                        String token = task.getResult();
+
+                    }
+                });
+
+    }
+
 }

@@ -18,6 +18,7 @@ public class User {
     private int points;
     private int gameLevel;
     private String selectedCourse;
+    private String firebaseNotificationToken;
 
 
     public User() {
@@ -33,7 +34,7 @@ public class User {
     }
 
 
-    public User(String uID, String firstname, String lastname, String studentLevel, String studentId, String email, String profilePicture, String userBio, String linkedIn, String git, String tel, String fb, int points, int gameLevel) {
+    public User(String uID, String firstname, String lastname, String studentLevel, String studentId, String email, String profilePicture, String userBio, String linkedIn, String git, String tel, String fb, int points, int gameLevel, String firebaseNotificationToken) {
         this.uID = uID;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -48,6 +49,7 @@ public class User {
         this.fb = fb;
         this.points = points;
         this.gameLevel = gameLevel;
+        this.firebaseNotificationToken = firebaseNotificationToken;
     }
 
     public User(String uID, String firstname, String lastname, String studentLevel, String studentId, String email, String userBio, String linkedIn, String git, String tel, String fb) {
@@ -178,6 +180,14 @@ public class User {
 
     public String getSelectedCourse() {
         return selectedCourse;
+    }
+
+    public String getFirebaseNotificationToken() {
+        return firebaseNotificationToken;
+    }
+
+    public void setFirebaseNotificationToken(String firebaseNotificationToken) {
+        this.firebaseNotificationToken = firebaseNotificationToken;
     }
 
     public void setSelectedCourse(String selectedCourse) {

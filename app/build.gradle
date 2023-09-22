@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
+    // Add the dependency for the Google services Gradle plugin
+//    id 'com.google.gms.google-services' version '4.3.15' apply false
 }
 
 android {
@@ -38,9 +40,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:24.7.0'
     implementation 'com.google.firebase:firebase-database:20.1.0'
     implementation 'com.google.firebase:firebase-storage:20.1.0'
-    implementation(platform("com.google.firebase:firebase-bom:32.2.0"))
-    implementation 'com.google.firebase:firebase-messaging:23.1.0'
-    implementation 'com.google.firebase:firebase-inappmessaging-display:20.2.0'
+    //implementation(platform("com.google.firebase:firebase-bom:32.2.0"))
+    //implementation 'com.google.firebase:firebase-messaging:23.2.1'
+    implementation 'com.google.firebase:firebase-inappmessaging-display:20.3.3'
+    implementation 'com.google.firebase:firebase-functions:20.3.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -50,11 +53,25 @@ dependencies {
 
 
 
+
+    // Import the BoM for the Firebase platform
+    implementation(platform("com.google.firebase:firebase-bom:32.2.3"))
+
+    // Add the dependencies for the Firebase Cloud Messaging and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-messaging")
+    implementation("com.google.firebase:firebase-analytics")
     // Firebase UI for Realtime Database
 //    implementation 'com.firebaseui:firebase-ui-firestore:17.0.1'
     implementation 'com.firebaseui:firebase-ui-database:7.1.1'
     implementation 'com.firebaseui:firebase-ui-database:6.0.2'
     implementation 'com.google.firebase:firebase-core:21.1.1'
+    implementation 'com.google.firebase:firebase-core'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.android.volley:volley:1.2.1'
+
+
 
 
 }

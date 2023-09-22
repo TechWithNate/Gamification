@@ -28,6 +28,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class CreateAccount extends AppCompatActivity {
 
@@ -48,6 +50,10 @@ public class CreateAccount extends AppCompatActivity {
     String studentIdPattern = "^[0-9]{8}[a-zA-Z]$";
     // Regular expression pattern for a valid name (only alphabets)
     String namePattern = "^[a-zA-Z]+$";
+    private static final String EMAIL_PATTERN =
+            "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" +
+                    "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
 
     FirebaseAuth firebaseAuth;
 
@@ -125,6 +131,8 @@ public class CreateAccount extends AppCompatActivity {
         }else if (email.getText().toString().isEmpty()) {
             Toast.makeText(this, "Enter Email", Toast.LENGTH_SHORT).show();
             email.requestFocus();
+        }else if (!isEmailValid(email.getText().toString())){
+            Toast.makeText(this, "Invalid email address", Toast.LENGTH_SHORT).show();
         }else if (password.getText().toString().length() < 6){
             Toast.makeText(this, "Password too short", Toast.LENGTH_SHORT).show();
             password.requestFocus();
@@ -203,6 +211,11 @@ public class CreateAccount extends AppCompatActivity {
     }
 
 
+    private boolean isEmailValid(String email) {
+        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
 
     private void updateUI(FirebaseUser user){
             Intent intent = new Intent(CreateAccount.this, Home.class);

@@ -145,6 +145,14 @@ public class Home extends AppCompatActivity {
                  replaceFragment(new ProfileFragment());
              }else if (item.getItemId() == R.id.nav_share){
                  //TODO: share app
+                 String shareText = "Check out this link: https://www.example.com";
+
+                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                 shareIntent.setType("text/plain");
+                 shareIntent.putExtra(Intent.EXTRA_TEXT, shareText);
+
+                 startActivity(Intent.createChooser(shareIntent, "Share link using"));
+
              }else if (item.getItemId() == R.id.nav_credits){
                  //TODO: open credits activity
                  Intent intent = new Intent(Home.this, Credits.class);

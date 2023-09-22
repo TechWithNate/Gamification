@@ -15,9 +15,9 @@
 
 
         //red is the color of the pressed state and activated state
-        <item name="colorControlActivated">@android:color/holo_red_light</item>
+        <item name="colorControlActivated">@color/white_grey</item>
         //black is the color of the normal state
-        <item name="colorControlNormal">#E10606</item>
+        <item name="colorControlNormal">@color/white_grey</item>
 
         <!--        Bottom Bar theme-->
 
